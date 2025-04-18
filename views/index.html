@@ -31,7 +31,7 @@
 </div>
 
 <script>
-  const weekdays = [
+  const week = [
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -42,7 +42,7 @@
   ];
   const calendar = document.querySelector(".calendar");
   const dayTemplate = document.getElementById("day-template").content;
-  weekdays.forEach((day) => {
+  week.forEach((day) => {
     const dayOfTheWeekItem = document.importNode(dayTemplate, true)
     const dayHeading = dayOfTheWeekItem.querySelector(".day-heading")
     dayHeading.textContent = day
