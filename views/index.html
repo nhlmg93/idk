@@ -1,0 +1,51 @@
+<style>
+  .center {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .calendar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 95vw;
+    border: 2px solid black;
+  }
+
+  .day {
+    text-align: center;
+    border: 1px solid blue;
+  }
+</style>
+
+<div class="center">
+  <div class="calendar"></div>
+</div>
+
+<template id="day-template">
+  <div class="day">
+    <h3 class="day-heading"></h3>
+    <div class="day-body"></div>
+  </div>
+</template>
+
+<script>
+  const weekdays = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  const calendar = document.querySelector(".calendar");
+  const dayTemplate = document.getElementById("day-template").content;
+  weekdays.forEach((day) => {
+    const dayOfTheWeekItem = document.importNode(dayTemplate, true)
+    const dayHeading = dayOfTheWeekItem.querySelector(".day-heading")
+    dayHeading.textContent = day
+    calendar.appendChild(dayOfTheWeekItem)
+  });
+</script>
